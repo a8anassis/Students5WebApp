@@ -1,0 +1,48 @@
+﻿@page "/Students/{id}/Update"
+@model WebStarterDBApp.Pages.Students.UpdateModel
+@{
+}
+
+<form method="POST">
+    <div class="row mb-3">
+        <label for="firstname" class="col-md-1">Όνομα</label>
+        <div class="col-md-6">
+            <input type="text" class="form-control" name="firstname" id="firstname"
+                   placeholder="Enter firstname" value="@Model.StudentUpdateDTO!.Firstname" />
+        </div>
+    </div>
+
+    <div class="row mb-3">
+        <label for="lastname" class="col-md-1">Επώνυμο</label>
+        <div class="col-md-6">
+            <input type="text" class="form-control" name="lastname" id="lastname"
+                   placeholder="Enter lastname" value="@Model.StudentUpdateDTO!.Lastname" />
+        </div>
+    </div>
+
+    <div>
+        <div class="row mb-3">
+            <div class="offset-md-1 col-md-3 d-grid">
+                <button class="btn btn-primary" type="Submit">Submit</button>
+            </div>
+        </div>
+        <div class="row mb-3">
+            <div class="offset-md-1 col-md-3 d-grid">
+                <a class="btn btn-outline-primary" href="/Students/getall">Cancel</a>
+            </div>
+        </div>
+    </div>
+
+</form>
+
+<div>
+    @if (Model.ErrorArray!.Count != 0)
+    {
+        @foreach (var error in Model.ErrorArray)
+        {
+            <div>
+                <p>@error.Message</p>
+            </div>
+        }
+    }
+</div>
